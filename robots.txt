@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://review-market.fr/sitemap.xml
+Sitemap: https://avis-premium.com/sitemap.xml
