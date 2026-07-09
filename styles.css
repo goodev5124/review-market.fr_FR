@@ -11,8 +11,8 @@
     --gray: #5a5568;
     --gray-light: #e9ecef;
     --gradient: linear-gradient(135deg, #6020a0 0%, #d4af37 100%);
-    --gold-gradient: linear-gradient(135deg, #f6e5ab 0%, #d4af37 45%, #b8860b 100%);
-    --gold-line: linear-gradient(90deg, transparent, #d4af37, transparent);
+    --gold-gradient: linear-gradient(135deg, #e8c765 0%, #c99a2e 45%, #9c7715 100%);
+    --gold-line: linear-gradient(90deg, transparent, #c99a2e, transparent);
     --shadow: 0 24px 60px -12px rgba(42, 35, 64, 0.18);
     --shadow-sm: 0 8px 30px -8px rgba(42, 35, 64, 0.10);
     --shadow-gold: 0 10px 30px -8px rgba(212, 175, 55, 0.45);
@@ -39,17 +39,6 @@ body {
     color: var(--dark);
     background: var(--white);
     overflow-x: hidden;
-}
-
-h1, h2, h3,
-.section-title,
-.hero-content h1,
-.credibility-content h2,
-.pricing-header h3,
-.stat-number,
-.price {
-    font-family: var(--font-heading);
-    letter-spacing: -0.01em;
 }
 
 a {
@@ -359,7 +348,7 @@ img {
 .stat-number {
     font-size: 47px;
     font-weight: 800;
-    background: var(--gold-gradient);
+    background: var(--gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -534,8 +523,8 @@ img {
     background: var(--white);
     border-radius: var(--radius-lg);
     padding: 40px 30px;
-    border: 1px solid rgba(96, 32, 160, 0.18);
-    box-shadow: var(--shadow-sm);
+    border: 2px solid var(--primary);
+    box-shadow: var(--shadow);
     transition: var(--transition);
     position: relative;
     display: flex;
@@ -544,15 +533,10 @@ img {
 
 .pricing-card:hover {
     transform: translateY(-10px);
-    box-shadow: var(--shadow);
-    border-color: rgba(96, 32, 160, 0.3);
 }
 
 .pricing-card.featured {
     transform: scale(1.05);
-    border: 1.5px solid var(--secondary);
-    background: linear-gradient(180deg, var(--cream) 0%, var(--white) 100%);
-    box-shadow: var(--shadow-gold);
 }
 
 .pricing-card.featured:hover {
@@ -564,15 +548,12 @@ img {
     top: -12px;
     left: 50%;
     transform: translateX(-50%);
-    background: var(--gold-gradient);
-    color: var(--dark);
-    padding: 6px 22px;
+    background: var(--gradient);
+    color: var(--white);
+    padding: 6px 20px;
     border-radius: 50px;
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    box-shadow: var(--shadow-gold);
+    font-size: 12px;
+    font-weight: 600;
 }
 
 .pricing-header {
@@ -601,7 +582,7 @@ img {
 .price {
     font-size: 47px;
     font-weight: 800;
-    background: var(--gold-gradient);
+    background: var(--gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
