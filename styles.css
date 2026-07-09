@@ -1,18 +1,25 @@
 :root {
     --primary: #6020a0;
     --primary-dark: #481880;
-    --secondary: #20d9a1;
-    --dark: #3a3a3a;
-    --light: #f8f9fa;
+    --secondary: #d4af37;
+    --secondary-dark: #b8942a;
+    --dark: #2a2340;
+    --dark-violet: #1a1230;
+    --light: #faf9fc;
+    --cream: #fdfbf4;
     --white: #ffffff;
-    --gray: #4a4a4a;
+    --gray: #5a5568;
     --gray-light: #e9ecef;
-    --gradient: linear-gradient(135deg, #6020a0 0%, #20d9a1 100%);
-    --shadow: 0 10px 40px rgba(95, 57, 255, 0.15);
-    --shadow-sm: 0 4px 15px rgba(0, 0, 0, 0.08);
+    --gradient: linear-gradient(135deg, #6020a0 0%, #d4af37 100%);
+    --gold-gradient: linear-gradient(135deg, #f6e5ab 0%, #d4af37 45%, #b8860b 100%);
+    --gold-line: linear-gradient(90deg, transparent, #d4af37, transparent);
+    --shadow: 0 24px 60px -12px rgba(42, 35, 64, 0.18);
+    --shadow-sm: 0 8px 30px -8px rgba(42, 35, 64, 0.10);
+    --shadow-gold: 0 10px 30px -8px rgba(212, 175, 55, 0.45);
     --radius: 12px;
     --radius-lg: 20px;
-    --transition: all 0.3s ease;
+    --transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    --font-heading: 'Playfair Display', Georgia, serif;
 }
 
 *, *::before, *::after {
@@ -32,6 +39,17 @@ body {
     color: var(--dark);
     background: var(--white);
     overflow-x: hidden;
+}
+
+h1, h2, h3,
+.section-title,
+.hero-content h1,
+.credibility-content h2,
+.pricing-header h3,
+.stat-number,
+.price {
+    font-family: var(--font-heading);
+    letter-spacing: -0.01em;
 }
 
 a {
@@ -58,10 +76,11 @@ img {
 
 .btn {
     display: inline-block;
-    padding: 14px 32px;
+    padding: 15px 36px;
     font-family: 'Montserrat', sans-serif;
     font-size: 14px;
     font-weight: 600;
+    letter-spacing: 0.03em;
     border-radius: 50px;
     cursor: pointer;
     transition: var(--transition);
@@ -72,12 +91,12 @@ img {
 .btn-primary {
     background: var(--gradient);
     color: var(--white);
-    box-shadow: 0 4px 20px rgba(95, 57, 255, 0.35);
+    box-shadow: 0 4px 20px rgba(96, 32, 160, 0.35);
 }
 
 .btn-primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 30px rgba(95, 57, 255, 0.45);
+    box-shadow: 0 8px 30px rgba(96, 32, 160, 0.45);
 }
 
 .btn-outline {
@@ -257,8 +276,11 @@ img {
 }
 
 .hero {
-    padding: 200px 0 100px;
-    background: linear-gradient(180deg, #f8f9ff 0%, var(--white) 100%);
+    padding: 210px 0 110px;
+    background:
+        radial-gradient(55% 50% at 82% 18%, rgba(212, 175, 55, 0.12), transparent 70%),
+        radial-gradient(50% 55% at 12% 32%, rgba(96, 32, 160, 0.09), transparent 70%),
+        linear-gradient(180deg, #faf8fc 0%, var(--white) 100%);
     overflow: hidden;
 }
 
@@ -337,7 +359,7 @@ img {
 .stat-number {
     font-size: 47px;
     font-weight: 800;
-    background: var(--gradient);
+    background: var(--gold-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -415,10 +437,23 @@ img {
 
 .section-title {
     text-align: center;
-    font-size: 35px;
+    font-size: 38px;
     font-weight: 800;
     color: var(--dark);
-    margin-bottom: 20px;
+    margin-bottom: 28px;
+    padding-bottom: 22px;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 2px;
+    background: var(--gold-line);
 }
 
 .section-subtitle {
@@ -499,8 +534,8 @@ img {
     background: var(--white);
     border-radius: var(--radius-lg);
     padding: 40px 30px;
-    border: 2px solid var(--primary);
-    box-shadow: var(--shadow);
+    border: 1px solid rgba(96, 32, 160, 0.18);
+    box-shadow: var(--shadow-sm);
     transition: var(--transition);
     position: relative;
     display: flex;
@@ -509,10 +544,15 @@ img {
 
 .pricing-card:hover {
     transform: translateY(-10px);
+    box-shadow: var(--shadow);
+    border-color: rgba(96, 32, 160, 0.3);
 }
 
 .pricing-card.featured {
     transform: scale(1.05);
+    border: 1.5px solid var(--secondary);
+    background: linear-gradient(180deg, var(--cream) 0%, var(--white) 100%);
+    box-shadow: var(--shadow-gold);
 }
 
 .pricing-card.featured:hover {
@@ -524,12 +564,15 @@ img {
     top: -12px;
     left: 50%;
     transform: translateX(-50%);
-    background: var(--gradient);
-    color: var(--white);
-    padding: 6px 20px;
+    background: var(--gold-gradient);
+    color: var(--dark);
+    padding: 6px 22px;
     border-radius: 50px;
-    font-size: 12px;
-    font-weight: 600;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    box-shadow: var(--shadow-gold);
 }
 
 .pricing-header {
@@ -558,7 +601,7 @@ img {
 .price {
     font-size: 47px;
     font-weight: 800;
-    background: var(--gradient);
+    background: var(--gold-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -692,9 +735,11 @@ img {
 }
 
 .footer {
-    background: var(--dark);
+    background: var(--dark-violet);
     color: var(--white);
     padding: 60px 0 30px;
+    border-top: 2px solid transparent;
+    border-image: var(--gold-line) 1;
 }
 
 .footer-content {
@@ -719,6 +764,8 @@ img {
     font-size: 15px;
     font-weight: 700;
     margin-bottom: 20px;
+    color: var(--secondary);
+    letter-spacing: 0.04em;
 }
 
 .footer-links ul {
@@ -750,8 +797,8 @@ img {
 }
 
 .promo-bar {
-    background: #e53e3e;
-    color: #fff;
+    background: var(--secondary);
+    color: var(--dark);
     text-align: center;
     padding: 10px 20px;
     font-size: 14px;
@@ -766,8 +813,8 @@ img {
 }
 
 .promo-bar .promo-code {
-    background: #fff;
-    color: #e53e3e;
+    background: var(--primary);
+    color: var(--white);
     padding: 3px 10px;
     border-radius: 5px;
     font-weight: 800;
@@ -800,7 +847,7 @@ img {
 
     .nav {
         position: fixed;
-        top: 70px;
+        top: 100px;
         left: 0;
         right: 0;
         background: var(--white);
@@ -810,6 +857,10 @@ img {
         opacity: 0;
         visibility: hidden;
         transition: var(--transition);
+    }
+
+    .nav-item.dropdown > .nav-link {
+        justify-content: center;
     }
 
     .nav.active {
